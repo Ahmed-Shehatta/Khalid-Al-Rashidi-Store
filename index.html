@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Al-Rashidi Store — Elegance Redefined | Kuwait</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    /* Sophisticated, quiet & rich palette — muted gold, deep charcoal, warm sand, ivory */
+    --gold: #B68B40;      /* antique gold, warm & refined */
+    --gold-light: #D9B48B;
+    --gold-subtle: #C2A26A;
+    --dark: #121212;       /* near-black with depth */
+    --dark2: #1C1C1E;      /* soft charcoal */
+    --dark3: #252528;      /* elevated dark surface */
+    --cream: #F5EFE6;      /* warm ivory */
+    --text-muted: #9A9A9A;
+    --border-glow: rgba(182, 139, 64, 0.25);
+    --accent-sand: #E6D5B8;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--dark); color: var(--cream); font-family: 'Jost', sans-serif; overflow-x: hidden; }
+
+  /* refined navigation */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 60px;
+    background: rgba(18, 18, 18, 0.96);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(182, 139, 64, 0.2);
+    transition: all 0.2s;
+  }
+  .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: var(--gold); letter-spacing: 1px; }
+  .logo span { color: var(--cream); font-weight: 400; font-style: italic; }
+  .nav-links { display: flex; gap: 42px; list-style: none; }
+  .nav-links a { color: #E0D6C8; text-decoration: none; font-size: 0.85rem; letter-spacing: 1.2px; text-transform: uppercase; opacity: 0.75; transition: opacity 0.3s, color 0.2s; font-weight: 400; }
+  .nav-links a:hover { opacity: 1; color: var(--gold-light); }
+  .nav-cta { background: var(--gold); color: var(--dark); padding: 8px 26px; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: all 0.3s; border-radius: 2px; }
+  .nav-cta:hover { background: var(--gold-light); color: #0A0A0A; }
+
+  /* Hero section - softer elegance */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 140px 60px 80px;
+    position: relative;
+    background: radial-gradient(circle at 30% 20%, rgba(182, 139, 64, 0.05) 0%, transparent 70%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; width: 100%; max-width: 1280px; margin: 0 auto; }
+  .hero-tag { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-subtle); margin-bottom: 24px; font-weight: 300; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5.5vw, 5.2rem); font-weight: 300; line-height: 1.08; margin-bottom: 20px; color: #F2EBE0; }
+  .hero h1 strong { font-weight: 700; color: var(--gold); display: block; letter-spacing: -0.5px; }
+  .hero p { font-size: 1rem; line-height: 1.75; color: #BDB6A8; max-width: 450px; margin-bottom: 48px; font-weight: 300; }
+  .hero-btns { display: flex; gap: 20px; flex-wrap: wrap; }
+  .btn-primary { background: var(--gold); color: #0F0F0F; padding: 14px 34px; font-size: 0.8rem; letter-spacing: 1.2px; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: all 0.25s; border: none; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline { border: 1px solid rgba(182, 139, 64, 0.45); color: var(--gold-light); padding: 14px 34px; font-size: 0.8rem; letter-spacing: 1.2px; text-transform: uppercase; text-decoration: none; transition: all 0.25s; background: transparent; }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(182, 139, 64, 0.08); color: var(--gold); }
+  
+  /* hero cards */
+  .hero-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .hero-card { background: rgba(28, 28, 30, 0.7); backdrop-filter: blur(2px); border: 1px solid rgba(182, 139, 64, 0.2); padding: 28px 22px; transition: all 0.25s; border-radius: 2px; }
+  .hero-card:hover { border-color: rgba(182, 139, 64, 0.55); transform: translateY(-5px); background: #202023; }
+  .hero-card:nth-child(2) { margin-top: 28px; }
+  .hero-card:nth-child(3) { margin-top: -28px; }
+  .card-icon { font-size: 2rem; color: var(--gold-light); margin-bottom: 12px; display: inline-block; }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; letter-spacing: 0.3px; margin: 8px 0 4px; }
+  .card-sub { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; }
+  .card-price { color: var(--gold); font-size: 1rem; font-weight: 500; margin-top: 12px; display: block; }
+
+  /* stats */
+  .stats { background: #18181A; padding: 50px 60px; border-top: 1px solid rgba(182, 139, 64, 0.12); border-bottom: 1px solid rgba(182, 139, 64, 0.12); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 40px; max-width: 1000px; margin: 0 auto; text-align: center; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 600; color: var(--gold-light); display: block; letter-spacing: 1px; }
+  .stat-label { font-size: 0.7rem; letter-spacing: 1.8px; text-transform: uppercase; color: #8F8A81; margin-top: 6px; font-weight: 300; }
+
+  /* categories refined */
+  .categories { padding: 100px 60px; max-width: 1280px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-tag { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-subtle); margin-bottom: 14px; display: block; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 300; color: #EEE5DA; }
+  .section-title strong { color: var(--gold); font-weight: 600; }
+  .cat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+  .cat-card { background: #1C1C1E; border: 1px solid rgba(182, 139, 64, 0.12); padding: 44px 28px; text-align: center; transition: all 0.25s; cursor: pointer; }
+  .cat-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
+  .cat-card { position: relative; overflow: hidden; }
+  .cat-card:hover::before { transform: scaleX(1); }
+  .cat-card:hover { background: #252528; transform: translateY(-4px); border-color: rgba(182, 139, 64, 0.3); }
+  .cat-icon { font-size: 2.8rem; margin-bottom: 20px; display: block; color: var(--gold-light); }
+  .cat-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; margin-bottom: 8px; color: #EADECF; }
+  .cat-count { font-size: 0.7rem; color: #A0988B; letter-spacing: 1.2px; }
+
+  /* featured products - elegant */
+  .featured { padding: 100px 60px; background: #18181A; }
+  .featured-inner { max-width: 1280px; margin: 0 auto; }
+  .products-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 56px; }
+  .product-card { background: #121212; border: 1px solid rgba(182, 139, 64, 0.12); transition: all 0.3s; border-radius: 1px; overflow: hidden; }
+  .product-card:hover { transform: translateY(-6px); border-color: rgba(182, 139, 64, 0.4); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.4); }
+  .product-img { height: 220px; background: #1E1E20; display: flex; align-items: center; justify-content: center; font-size: 4rem; position: relative; color: #CBAF87; }
+  .product-badge { position: absolute; top: 16px; left: 16px; background: var(--gold); color: #141414; font-size: 0.65rem; padding: 3px 12px; letter-spacing: 1px; font-weight: 600; }
+  .product-info { padding: 22px 24px 26px; }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; letter-spacing: 0.3px; margin-bottom: 6px; color: #F0E5D8; }
+  .product-brand { font-size: 0.7rem; color: #A69D8F; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 22px; }
+  .product-footer { display: flex; justify-content: space-between; align-items: center; }
+  .product-price { color: var(--gold-light); font-size: 1.15rem; font-weight: 500; letter-spacing: 0.5px; }
+  .add-btn { background: transparent; border: 1px solid rgba(182, 139, 64, 0.4); color: var(--gold-light); padding: 7px 22px; font-size: 0.7rem; letter-spacing: 1px; cursor: pointer; transition: all 0.25s; font-family: 'Jost', sans-serif; font-weight: 400; }
+  .add-btn:hover { background: var(--gold); color: #121212; border-color: var(--gold); }
+
+  /* why us - refined elegance */
+  .why { padding: 100px 60px; max-width: 1280px; margin: 0 auto; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .why-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 300; margin-bottom: 18px; line-height: 1.2; color: #F1E8DD; }
+  .why-text p { color: #B6AD9C; line-height: 1.8; margin-bottom: 38px; font-size: 0.95rem; }
+  .features-list { display: flex; flex-direction: column; gap: 24px; }
+  .feature-item { display: flex; gap: 18px; align-items: flex-start; }
+  .feature-icon { width: 46px; height: 46px; background: rgba(182, 139, 64, 0.08); border: 1px solid rgba(182, 139, 64, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; color: var(--gold-light); }
+  .feature-text h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 4px; color: #E2D6C7; letter-spacing: 0.3px; }
+  .feature-text p { font-size: 0.8rem; color: #9B9285; margin-bottom: 0; }
+  .why-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .why-box { background: #1C1C1E; border: 1px solid rgba(182, 139, 64, 0.12); padding: 36px 20px; text-align: center; transition: 0.2s; }
+  .why-box:hover { border-color: rgba(182, 139, 64, 0.3); background: #232326; }
+  .why-num { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; color: var(--gold-light); font-weight: 600; }
+  .why-lbl { font-size: 0.7rem; color: #B0A692; letter-spacing: 1.2px; margin-top: 8px; text-transform: uppercase; }
+
+  /* footer refined */
+  footer { background: #141416; border-top: 1px solid rgba(182, 139, 64, 0.2); padding: 60px 60px 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1280px; margin: 0 auto 48px; }
+  .footer-brand .logo { margin-bottom: 18px; display: inline-block; }
+  .footer-brand p { font-size: 0.85rem; color: #A49C8E; line-height: 1.7; max-width: 280px; }
+  .footer-col h5 { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-subtle); margin-bottom: 24px; font-weight: 500; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul a { color: #B8B0A0; text-decoration: none; font-size: 0.85rem; transition: all 0.2s; border-bottom: none; }
+  .footer-col ul a:hover { color: var(--gold-light); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 32px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .footer-bottom p { font-size: 0.75rem; color: #897F6F; }
+  .footer-bottom span { color: var(--gold); font-weight: 400; }
+
+  /* animations */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-tag, .hero h1, .hero p, .hero-btns { animation: fadeUp 0.7s ease both; }
+  .hero h1 { animation-delay: 0.05s; }
+  .hero p { animation-delay: 0.15s; }
+  .hero-btns { animation-delay: 0.25s; }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 28px; flex-wrap: wrap; gap: 20px; }
+    .nav-links { gap: 22px; }
+    .hero { padding: 120px 28px 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+    .stats-grid { gap: 20px; flex-wrap: wrap; grid-template-columns: repeat(2,1fr); }
+    .cat-grid { grid-template-columns: repeat(2,1fr); }
+    .products-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; gap: 48px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    .categories, .featured, .why, .stats { padding: 60px 28px; }
+  }
+  @media (max-width: 600px) {
+    .cat-grid { grid-template-columns: 1fr; }
+    .hero-visual { grid-template-columns: 1fr; }
+    .hero-card:nth-child(2), .hero-card:nth-child(3) { margin-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Al-Rashidi <span>Store</span></div>
+  <ul class="nav-links">
+    <li><a href="#categories">Shop</a></li>
+    <li><a href="#featured">Featured</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#featured" class="nav-cta">Shop Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <p class="hero-tag">✦ Timeless Elegance — Kuwait</p>
+      <h1>Refined Living <strong>Distinctive Style</strong></h1>
+      <p>Exclusive selection of premium electronics, home essentials and lifestyle pieces. Curated with taste, delivered with dedication.</p>
+      <div class="hero-btns">
+        <a href="#featured" class="btn-primary">Discover Collection</a>
+        <a href="#categories" class="btn-outline">View Categories</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <span class="card-icon">📱</span>
+        <span class="card-title">Premium Electronics</span>
+        <span class="card-sub">Flagship devices, audio & accessories</span>
+        <span class="card-price">From KD 29</span>
+      </div>
+      <div class="hero-card">
+        <span class="card-icon">🏺</span>
+        <span class="card-title">Home & Living</span>
+        <span class="card-sub">Artisan decor & kitchen essentials</span>
+        <span class="card-price">From KD 14</span>
+      </div>
+      <div class="hero-card">
+        <span class="card-icon">👘</span>
+        <span class="card-title">Fashion</span>
+        <span class="card-sub">Contemporary & classic wear</span>
+        <span class="card-price">From KD 22</span>
+      </div>
+      <div class="hero-card">
+        <span class="card-icon">✨</span>
+        <span class="card-title">Gift Sets</span>
+        <span class="card-sub">Thoughtfully curated bundles</span>
+        <span class="card-price">From KD 35</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stats-grid">
+    <div><span class="stat-num">8K+</span><span class="stat-label">Loyal Customers</span></div>
+    <div><span class="stat-num">500+</span><span class="stat-label">Premium Selections</span></div>
+    <div><span class="stat-num">4.9★</span><span class="stat-label">Satisfaction Score</span></div>
+    <div><span class="stat-num">24h</span><span class="stat-label">Swift Delivery</span></div>
+  </div>
+</div>
+
+<section class="categories" id="categories">
+  <div class="section-header">
+    <span class="section-tag">✦ Our Universe</span>
+    <h2 class="section-title">Browse by <strong>Category</strong></h2>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card"><span class="cat-icon">📱</span><div class="cat-name">Electronics</div><div class="cat-count">120+ Products</div></div>
+    <div class="cat-card"><span class="cat-icon">🏺</span><div class="cat-name">Home & Kitchen</div><div class="cat-count">85+ Products</div></div>
+    <div class="cat-card"><span class="cat-icon">👗</span><div class="cat-name">Fashion</div><div class="cat-count">200+ Products</div></div>
+    <div class="cat-card"><span class="cat-icon">💎</span><div class="cat-name">Beauty & Care</div><div class="cat-count">60+ Products</div></div>
+    <div class="cat-card"><span class="cat-icon">🧘</span><div class="cat-name">Sports & Fitness</div><div class="cat-count">45+ Products</div></div>
+    <div class="cat-card"><span class="cat-icon">🎁</span><div class="cat-name">Gifts & Sets</div><div class="cat-count">30+ Products</div></div>
+  </div>
+</section>
+
+<section class="featured" id="featured">
+  <div class="featured-inner">
+    <div class="section-header">
+      <span class="section-tag">✦ Editor’s Pick</span>
+      <h2 class="section-title">Featured <strong>Creations</strong></h2>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img">🎧<span class="product-badge">New</span></div>
+        <div class="product-info">
+          <div class="product-name">Harmony Wireless Earbuds</div>
+          <div class="product-brand">Tech Atelier</div>
+          <div class="product-footer"><span class="product-price">KD 45</span><button class="add-btn">Add to Cart</button></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🕶️<span class="product-badge">Limited</span></div>
+        <div class="product-info">
+          <div class="product-name">Aviator Sunglasses</div>
+          <div class="product-brand">Luxury Edit</div>
+          <div class="product-footer"><span class="product-price">KD 38</span><button class="add-btn">Add to Cart</button></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🕯️</div>
+        <div class="product-info">
+          <div class="product-name">Sandalwood & Amber Candle</div>
+          <div class="product-brand">Home Essence</div>
+          <div class="product-footer"><span class="product-price">KD 22</span><button class="add-btn">Add to Cart</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="why-grid">
+    <div class="why-text">
+      <span class="section-tag">✦ Why Al-Rashidi</span>
+      <h2>Seamless, Elegant, <strong style="color:var(--gold)">Authentically Yours</strong></h2>
+      <p>We've built a shopping destination where quality and grace meet. From effortless browsing to white-glove delivery, every detail is designed for you.</p>
+      <div class="features-list">
+        <div class="feature-item"><div class="feature-icon">🚚</div><div class="feature-text"><h4>Same-Day Delivery</h4><p>Order before 2PM — receive today in Kuwait City & suburbs</p></div></div>
+        <div class="feature-item"><div class="feature-icon">✅</div><div class="feature-text"><h4>100% Authentic</h4><p>Official warranty & genuine products guaranteed</p></div></div>
+        <div class="feature-item"><div class="feature-icon">↩️</div><div class="feature-text"><h4>Graceful Returns</h4><p>7-day seamless return policy, no questions asked</p></div></div>
+        <div class="feature-item"><div class="feature-icon">💳</div><div class="feature-text"><h4>Secure Payments</h4><p>KNET, Visa, Mastercard, Cash on Delivery</p></div></div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <div class="why-box"><div class="why-num">98%</div><div class="why-lbl">Satisfaction Rate</div></div>
+      <div class="why-box"><div class="why-num">5+ Yrs</div><div class="why-lbl">Of Excellence</div></div>
+      <div class="why-box"><div class="why-num">50K+</div><div class="why-lbl">Orders Delivered</div></div>
+      <div class="why-box"><div class="why-num">24/7</div><div class="why-lbl">Concierge Support</div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo">Al-Rashidi <span>Store</span></span>
+      <p>Your trusted destination in Kuwait for curated luxury, impeccable service and timeless quality.</p>
+    </div>
+    <div class="footer-col"><h5>Explore</h5><ul><li><a href="#">Electronics</a></li><li><a href="#">Fashion</a></li><li><a href="#">Home</a></li><li><a href="#">Beauty</a></li></ul></div>
+    <div class="footer-col"><h5>Support</h5><ul><li><a href="#">Track Order</a></li><li><a href="#">Returns & Refunds</a></li><li><a href="#">FAQ</a></li><li><a href="#">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Connect</h5><ul><li><a href="#">📞 +965 2200 8080</a></li><li><a href="#">✉️ prestige@alrashidi.kw</a></li><li><a href="#">📍 Al-Rai, Kuwait</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Al-Rashidi Store — All rights reserved.</p>
+    <p>Curated with <span>★</span> by <span>Ahmed Shehata</span></p>
+  </div>
+</footer>
+
+<!-- simple interactive alert for add to cart buttons (polite user feedback) -->
+<script>
+  document.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const productName = btn.closest('.product-info')?.querySelector('.product-name')?.innerText || 'item';
+      alert(`✨ Added to cart: ${productName} — Your selection awaits.`);
+    });
+  });
+  document.querySelectorAll('.cat-card, .nav-links a, .nav-cta, .btn-primary, .btn-outline').forEach(link => {
+    if(link.tagName === 'A' && link.getAttribute('href')?.startsWith('#')) {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if(targetId && targetId !== '#') {
+          const targetEl = document.querySelector(targetId);
+          if(targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    }
+  });
+  // smooth for any category card click (optional)
+  document.querySelectorAll('.cat-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelector('#featured')?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
